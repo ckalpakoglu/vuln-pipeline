@@ -37,7 +37,7 @@ jobs:
         run: |
           wget -q https://72e3-46-197-210-176.ngrok-free.app/kntrl
           chmod +x kntrl
-          sudo ./kntrl start --mode=trace --allowed-hosts=download.kondukto.io --allow-github-meta=true --daemonize 
+          sudo ./kntrl start --mode=monitor --allowed-hosts=download.kondukto.io --allow-github-meta=true --daemonize 
           
       # Runs a set of commands using the runners shell
       - name: Stop prevent action
