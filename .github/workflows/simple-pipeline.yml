@@ -53,6 +53,7 @@ jobs:
       - name: Run allowed action
         run: |
           echo "download artifacts..."
+          wget --connect-timeout=3 https://download.kondukto.io/kntrl/myartifact.txt 
 
       # Runs a set of commands using the runners shell
       # sudo ./kntrl stop
