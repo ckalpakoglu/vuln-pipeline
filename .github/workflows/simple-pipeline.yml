@@ -53,7 +53,8 @@ jobs:
       - name: Run allowed action
         run: |
           echo "download artifacts..."
-          wget --connect-timeout=3 https://download.kondukto.io/kntrl/myartifact.txt 
+          wget --connect-timeout=3 https://download.kondukto.io/kntrl/myartifact.txt
+          sleep 0.5
           wget --connect-timeout=3 docker.io
 
       # Runs a set of commands using the runners shell
