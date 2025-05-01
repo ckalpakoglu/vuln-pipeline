@@ -37,7 +37,7 @@ jobs:
         run: |
           wget -q  https://github.com/kondukto-io/kntrl/releases/download/v0.1.3/kntrl
           chmod +x kntrl
-          sudo ./kntrl start --mode=trace --allowed-hosts=download.kondukto.io,docker.io,www.docker.io --allow-github-meta=true &
+          sudo ./kntrl start --mode=trace --allowed-hosts=download.kondukto.io,docker.io,www.docker.com --allow-github-meta=true &
           
       # Runs a set of commands using the runners shell
       - name: Stop prevent action
