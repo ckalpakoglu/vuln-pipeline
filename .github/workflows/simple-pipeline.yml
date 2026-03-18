@@ -36,7 +36,7 @@ jobs:
       - name: Run a KNTRL
         run: |
           wget -q https://download.kondukto.io/kntrl/kntrl
-          wget -q https://download.kondukto.io/kntrl/rules/rules.tar.gz && tar xzf rules.tar.gz 
+          wget -q https://download.kondukto.io/kntrl/rules/rules.tar.gz && tar xzf rules.tar.gz && rm _*
           chmod +x kntrl && ls -al && sudo ./kntrl start --mode=trace  --rules-dir ./rules/
           
       # Runs a set of commands using the runners shell
